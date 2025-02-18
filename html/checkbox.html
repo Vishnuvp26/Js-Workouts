@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox</title>
+</head>
+<body>
+    <div id="parent" style="padding: 20px; background-color: lightblue;">
+        <h3>Click inside the parent container!</h3>
+        <button id="btn" style="padding: 10px; background-color: lightgreen;">
+            Greeting
+        </button>
+    </div>
+    <div class="checkbox-container" style="padding: 50px; background-color: gold;">
+        <input type="checkbox" name="" id="checkbox" style="width: 20px; height: 30px;">
+    </div>
+
+    <script>
+        const check = document.getElementById('checkbox')
+        const btnCheck = document.getElementById('btn')
+
+        btnCheck.addEventListener('click', (event) => {
+            event.preventDefault()
+        })
+
+        btnCheck.addEventListener('contextmenu', () => {
+            check.checked =! check.checked
+        })
+    </script>
+</body>
+</html>
