@@ -897,26 +897,6 @@
 //-------------------------------------------------------------------------//
 
 
-//-------------------debugging-------------------//
-// function frequency(array){
-//     let freqArr = [];
-//     for (let i = 0; i < array.length; i++){
-//         console.log("Current element:", array[i]);
-//         console.log("Index of first occurrence:", array.indexOf(array[i]));
-//         console.log("Index of last occurrence:", array.lastIndexOf(array[i]));
-//         if (array.indexOf(array[i]) !== array.lastIndexOf(array[i])) {
-//             freqArr.push(array[i])
-//             console.log("Added element to freqArr:", array[i]);
-//         }
-//     }
-//     return freqArr;
-// }
-
-// const arr = [1, 2, 3, 3, 4, 5, 1, 2, 3, 6];
-// console.log(frequency(arr));
-//-------------------------------------------------------------------------//
-
-
 //-------------------REVERSE FIRST AND LAST INDEX-------------------//
 // const a = [1, 2, 3, 4, 5];
 
@@ -1117,7 +1097,7 @@
 
 // console.log(proxy.name);
 // console.log(proxy.age);
-//-------------------------------------------------------------------------//
+// //-------------------------------------------------------------------------//
 
 
 //-------------------Filter numbers-------------------//
@@ -1472,20 +1452,20 @@
 
 
 //-------------------First occurance to Capital-------------------//
-// function capitalizer(str){
-//     let obj = {}
-//     for(let char of str){
-//         obj[char] = (obj[char] || 0) + 1
-//     }
-//     for(let i = 0; i < str.length; i++){
-//         if(obj[str[i]] === 1){
-//             return str.slice(0, i) + str[i].toUpperCase() + str.slice(i + 1)
-//         }
-//     }
-// }
+function capitalizer(str){
+    let obj = {}
+    for(let char of str){
+        obj[char] = (obj[char] || 0) + 1
+    }
+    for(let i = 0; i < str.length; i++){
+        if(obj[str[i]] === 1){
+            return str.slice(0, i) + str[i].toUpperCase() + str.slice(i + 1)
+        }
+    }
+}
 
-// let str = 'swiss'
-// console.log(capitalizer(str))
+let str = 'swiss'
+console.log(capitalizer(str))
 //-------------------------------------------------------------------------//
 
 
@@ -1550,17 +1530,17 @@
 
 
 //-------------------Flatten array with recursion-------------------//
-function flattenArr(arr, i = 0) {
-    if (i >= arr.length) return arr
-    if (Array.isArray(arr[i])) {
-        arr.splice(i, 1, ...arr[i])
-    }
-    i++
-    return flattenArr(arr, i)
-}
+// function flattenArr(arr, i = 0) {
+//     if (i >= arr.length) return arr
+//     if (Array.isArray(arr[i])) {
+//         arr.splice(i, 1, ...arr[i])
+//     }
+//     i++
+//     return flattenArr(arr, i)
+// }
 
-const arr = [1, 2, [3, 7, [9, 5, 0], [1, 4, 20]], [11, 34, 21]]
-console.log(flattenArr(arr))
+// const arr = [1, 2, [3, 7, [9, 5, 0], [1, 4, 20]], [11, 34, 21]]
+// console.log(flattenArr(arr))
 //-------------------------------------------------------------------------//
 
 
@@ -1633,11 +1613,11 @@ console.log(flattenArr(arr))
 
 
 //-------------------OTP generate-------------------//
-function otpGenerator() {
-    console.log(Math.floor(100000 + Math.random() * 900000))
-}
+// function otpGenerator() {
+//     console.log(Math.floor(100000 + Math.random() * 900000))
+// }
 
-otpGenerator()
+// otpGenerator()
 //-------------------------------------------------------------------------//
 
 
@@ -1657,60 +1637,96 @@ otpGenerator()
 
 
 //-------------------Structured clone-------------------//
-let person = {
-    name: 'Vishnu',
-    age: 25,
-    details: {
-        age: 25,
-        city: 'Calicut',
-    }
-}
+// let person = {
+//     name: 'Vishnu',
+//     age: 25,
+//     details: {
+//         age: 25,
+//         city: 'Calicut',
+//     }
+// }
 
-let clone = structuredClone(person)
-clone.details.city = 'Kottayam'
+// let clone = structuredClone(person)
+// clone.details.city = 'Kottayam'
 
-console.log('Original :', person.details.city)
-console.log('Cloned :', clone.details.city)
+// console.log('Original :', person.details.city)
+// console.log('Cloned :', clone.details.city)
 //-------------------------------------------------------------------------//
 
 
 //-------------------Reverse each words in a string-------------------//
-const input = "Hello world from JavaScript";
+// const input = "Hello world from JavaScript";
 
-let res = input.split(' ').
-    map(word => word.split('').reverse().join('')).join(' ');
+// let res = input.split(' ').
+//     map(word => word.split('').reverse().join('')).join(' ');
 
-console.log(res)
+// console.log(res)
 //-------------------------------------------------------------------------//
 
 
 //-------------------Throw error if fractional number occur-------------------//
-function chechFractional(...args) {
-    for (let arg of args) {
-        if (typeof arg === 'number' && !Number.isInteger(arg)) {
-            throw new Error('one argument is fractional number')
-        }
-    }
-    console.log('all are integers')
-}
+// function chechFractional(...args) {
+//     for (let arg of args) {
+//         if (typeof arg === 'number' && !Number.isInteger(arg)) {
+//             throw new Error('one argument is fractional number')
+//         }
+//     }
+//     console.log('all are integers')
+// }
 
-try {
-    chechFractional(1, 2, 3, 6.5)
-} catch (error) {
-    console.log(error);
-}
+// try {
+//     chechFractional(1, 2, 3, 6.5)
+// } catch (error) {
+//     console.log(error);
+// }
 //-------------------------------------------------------------------------//
 
 
-//-------------------0-------------------//
+//-------------------Print time without printing date-------------------//
+// const date = new Date();
+// const res = date.toLocaleTimeString();
+// console.log(res);
 //-------------------------------------------------------------------------//
 
 
-//-------------------0-------------------//
+//-------------------Find avg age of people age less than 30-------------------//
+// let users = [
+//     { age: 28, name: "John Doe" },
+//     { age: 34, name: "Jane Smith" },
+//     { age: 29, name: "Alice Johnson" },
+//     { age: 42, name: "Bob Brown" }
+// ];
+
+// let sum = 0;
+// let count = 0
+
+// for (let i = 0; i < users.length; i++) {
+//     if (users[i].age < 30) {
+//         sum += users[i].age;
+//         count++
+//     }
+// };
+
+// let avg = count > 0 ? sum / count : 0;
+// console.log('Average of the age', avg);
 //-------------------------------------------------------------------------//
 
 
-//-------------------0-------------------//
+//-------------------Fetch json data-------------------//
+// const fetchData = async () => {
+//     try {
+//         const response = await fetch('https://jsonplaceholder.typicode.com/users');
+//         if (!response.ok) {
+//             throw new Error('Reponse status', response.status);
+//         }
+//         const json = await response.json();
+//         console.log(json);
+//     } catch (error) {
+        
+//     }
+// };
+
+// fetchData();
 //-------------------------------------------------------------------------//
 
 
