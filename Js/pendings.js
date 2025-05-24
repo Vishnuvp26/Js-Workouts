@@ -197,17 +197,17 @@ console.log(res)
 //================== VIPIN VARGHESE ==================//
 
 // Reverse sub array
-// const arr = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]];
+const arr = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]];
 
-// const result = arr.map(subArray => {
-//     let reverse   = [];
-//     for (let i = subArray.length - 1; i >= 0; i--) {
-//         reversed.push(subArray[i]);
-//     }
-//     return reversed;
-// });
+const result = arr.map(subArray => {
+    let reverse   = [];
+    for (let i = subArray.length - 1; i >= 0; i--) {
+        reverse.push(subArray[i]);
+    }
+    return reverse;
+});
 
-// console.log(result);
+console.log(result);
 
 //-------------------------------------------------------------------------//
 

@@ -1730,5 +1730,135 @@ console.log(capitalizer(str))
 //-------------------------------------------------------------------------//
 
 
+//-------------------Largest digit without split-------------------//
+let num = 1234857;
+
+let largest = 0;
+
+while (num > 0) {
+    let digit = num % 10
+    if (digit > largest) {
+        largest = digit
+    }
+    num = Math.floor(num / 10)
+}
+
+console.log(largest);
+//-------------------------------------------------------------------------//
+
+
+//-------------------longest consecutive repeating characters-------------------//
+// function longestSequence(str) {
+//     let maxSeq = str[0];
+//     let currSeq = str[0];
+
+//     for (let i = 1; i < str.length; i++) {
+//         if (str[i] === str[i - 1]) {
+//             currSeq += str[i]
+//         } else {
+//             currSeq = str[i]
+//         }
+
+//         if (currSeq.length > maxSeq.length) {
+//             maxSeq = currSeq
+//         }
+//     }
+
+//     return maxSeq;
+// }f
+
+// let str = "aabbbccccdd";
+// console.log(longestSequence(str));
+//-------------------------------------------------------------------------//
+
+
+//-------------------Second largest word in a sentence-------------------//
+// function secondLargest(str) {
+//     let words = str.split(" ");
+//     let max = "";
+//     let secMax = "";
+
+//     for (let word of words) {
+//         if (word.length > max.length) {
+//             secMax = max;
+//             max = word;
+//         } else if (word.length > secMax.length && word !== max) {
+//             secMax = word;
+//         }
+//     }
+
+//     return secMax;
+// }
+
+// let str = "aa bbb cccc dd";
+// console.log(secondLargest(str));
+//-------------------------------------------------------------------------//
+
+
+//-------------------Function called only once-------------------//
+function one(fn) {
+    let called = false;
+
+    return function (...args) {
+        if (!called) {
+            called = true;
+            return fn(...args)
+        } else {
+            console.log('Function has already called once');
+        }
+    }
+};
+
+function greet(name) {
+    console.log(`Hello ${name}`);
+};
+
+const greeted = one(greet);
+
+greeted('Abin');
+greeted('John');
+//-------------------------------------------------------------------------//
+
+
+//-------------------Remove duplicate even-------------------//
+let arr = [1, 2, 1, 2, 5, 6, 9, 6, 4, 77];
+
+let obj = {};
+
+for (let val of arr) {
+    obj[val] = (obj[val] || 0) + 1
+}
+
+let res = arr.filter(val => !(obj[val] > 1 && obj[val] % 2 === 0));
+console.log(res);
+//-------------------------------------------------------------------------//
+
+
+//-------------------Reverse a digit-------------------//
+// let num = 12345;
+// let reversed = 0;
+
+// while (num != 0) {
+//     const digit = num % 10;
+//     reversed = reversed * 10 + digit;
+//     num = Math.floor(num / 10)
+// }
+
+// console.log(reversed);
+//-------------------------------------------------------------------------//
+
+
+//-------------------0-------------------//
+//-------------------------------------------------------------------------//
+
+
+//-------------------0-------------------//
+//-------------------------------------------------------------------------//
+
+
+//-------------------0-------------------//
+//-------------------------------------------------------------------------//
+
+
 //-------------------0-------------------//
 //-------------------------------------------------------------------------//

@@ -107,3 +107,33 @@ for (let keys in b) {
 
 console.log(a);
 //-------------------------------------------------------------------------//
+
+
+//-------------------Total sum of object-------------------//
+// const obj = {
+//     a: 10,
+//     b: {
+//         b1: 20,
+//         b2: {
+//             b21: 5,
+//             b22: 15
+//         }
+//     },
+//     c: 30
+// };
+
+// function findSum(obj) {
+//     let sum = 0;
+
+//     for (let keys in obj) {
+//         if (typeof obj[keys] == 'object') {
+//             sum += findSum(obj[keys]);
+//         } else if (typeof obj[keys] == 'number') {
+//             sum += obj[keys]
+//         }
+//     }
+//     return sum;
+// }
+
+// console.log(findSum(obj));
+//-------------------------------------------------------------------------//
