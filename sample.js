@@ -430,7 +430,7 @@
 //-------------------------------------------------------------------------//
 
 
-//-------------------Remove Duplicates-------------------//
+//-------------------Remove Duplicates from an array-------------------//
 // function removeDuplicates(array) {
 //     for (let i = 0; i < array.length; i++) {
 //         for (let j = i + 1; j < array.length; j++) {
@@ -444,6 +444,38 @@
 
 // const array = [1, 2, 2, 3, 4, 4, 5];
 // removeDuplicates(array);
+//-------------------------------------------------------------------------//
+
+
+//-------------------Remove duplicate from array O(n) time-------------------//
+// let arr = [1, 2, 1, 2, 5, 6, 9, 6, 4, 77];
+
+// let res = []
+// let seen = {}
+
+// for (let val of arr) {
+//     if (!seen[val]) {
+//         res.push(val)
+//         seen[val] = true
+//     }
+// }
+
+// console.log(res);
+//-------------------------------------------------------------------------//
+
+
+//-------------------Remove duplicate from array includes-------------------//
+// let arr = [1, 2, 1, 2, 5, 6, 9, 6, 4, 77];
+
+// let res = [];
+
+// for (let i = 0; i < arr.length; i++) {
+//     if (!res.includes(arr[i])) {
+//         res.push(arr[i])
+//     }
+// }
+
+// console.log(res);
 //-------------------------------------------------------------------------//
 
 
@@ -1100,6 +1132,35 @@
 // //-------------------------------------------------------------------------//
 
 
+//-------------------Validation with proxy object-------------------//
+let target = {
+    name: "vishnu",
+    age: 26
+}
+
+let handler = {
+    set: (obj, prop, value) => {
+        if (prop === 'age') {
+            if (value < 18 || value > 30) {
+                throw new Error("Age must be between 18 and 30")
+            }
+        }
+        obj[prop] = value
+        return true
+    }
+}
+
+let proxy = new Proxy(target, handler);
+
+try {
+    proxy.age = 32
+    console.log(`Age ${proxy.age} has been updated`);
+} catch (error) {
+    console.log(error.message);
+}
+//-------------------------------------------------------------------------//
+
+
 //-------------------Filter numbers-------------------//
 // let arr = [1, 5, null, 9, undefined, 9, 3, 0];
 
@@ -1622,17 +1683,17 @@ console.log(capitalizer(str))
 
 
 //-------------------Reverse sub array-------------------//
-// let arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-// let res = []
+// const arr = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]];
 
-// for (let i = 0; i < arr.length; i++){
-//     res.push([])
-//     for (let j = arr[i].length - 1; j >= 0; j--){
-//         res[i].push(arr[i][j])
+// const result = arr.map(subArray => {
+//     let reverse   = [];
+//     for (let i = subArray.length - 1; i >= 0; i--) {
+//         reverse.push(subArray[i]);
 //     }
-// }
+//     return reverse;
+// });
 
-// console.log(res)
+// console.log(result);
 //-------------------------------------------------------------------------//
 
 
@@ -1747,54 +1808,6 @@ console.log(largest);
 //-------------------------------------------------------------------------//
 
 
-//-------------------longest consecutive repeating characters-------------------//
-// function longestSequence(str) {
-//     let maxSeq = str[0];
-//     let currSeq = str[0];
-
-//     for (let i = 1; i < str.length; i++) {
-//         if (str[i] === str[i - 1]) {
-//             currSeq += str[i]
-//         } else {
-//             currSeq = str[i]
-//         }
-
-//         if (currSeq.length > maxSeq.length) {
-//             maxSeq = currSeq
-//         }
-//     }
-
-//     return maxSeq;
-// }f
-
-// let str = "aabbbccccdd";
-// console.log(longestSequence(str));
-//-------------------------------------------------------------------------//
-
-
-//-------------------Second largest word in a sentence-------------------//
-// function secondLargest(str) {
-//     let words = str.split(" ");
-//     let max = "";
-//     let secMax = "";
-
-//     for (let word of words) {
-//         if (word.length > max.length) {
-//             secMax = max;
-//             max = word;
-//         } else if (word.length > secMax.length && word !== max) {
-//             secMax = word;
-//         }
-//     }
-
-//     return secMax;
-// }
-
-// let str = "aa bbb cccc dd";
-// console.log(secondLargest(str));
-//-------------------------------------------------------------------------//
-
-
 //-------------------Function called only once-------------------//
 function one(fn) {
     let called = false;
@@ -1845,6 +1858,232 @@ console.log(res);
 // }
 
 // console.log(reversed);
+//-------------------------------------------------------------------------//
+
+
+//-------------------Fibonacci-------------------//
+function fibonacci(n) {
+    if (n < 2) return n;
+    return fibonacci(n - 1) + fibonacci(n - 2)
+};
+
+console.log(fibonacci(10));
+//-------------------------------------------------------------------------//
+
+
+//-------------------Longest sequence in a word-------------------//
+// let str = 'abbbcccc';
+
+// let largest = '', current = '';
+
+// for (let i = 0; i <= str.length; i++) {
+//     if (i === 0 || str[i] === str[i - 1]) {
+//         current += str[i]
+//     } else {
+//         if (current.length > largest.length) {
+//             largest = current
+//         }
+//         current = str[i]
+//     }
+// };
+
+// console.log(largest);
+//-------------------------------------------------------------------------//
+
+
+//-------------------Second longest sequence in a word-------------------//
+// let str = 'abbcccdddd';
+
+// let largest = '', second = '', current = '';
+
+// for (let i = 0; i <= str.length; i++) {
+//     if (i === 0 || str[i] === str[i - 1]) {
+//         current += str[i];
+//     } else {
+//         if (current.length > largest.length) {
+//             second = largest;
+//             largest = current;
+//         } else if (current.length > second.length && current !== largest) {
+//             second = current;
+//         }
+//         current = str[i];
+//     }
+// }
+
+// console.log(second);
+//-------------------------------------------------------------------------//
+
+
+//-------------------SECOND LARGEST WORD-------------------//
+// let str = 'javascript is the best coding language';
+
+// let largest = '', second = '', word = '';
+
+// for (let i = 0; i <= str.length; i++) {
+//     if (str[i] !== ' ' && i !== str.length) {
+//         word += str[i]
+//     } else {
+//         if (word.length > largest.length) {
+//             second = largest
+//             largest = word
+//         } else if (word.length > second.length) {
+//             second = word
+//         }
+//         word = ''
+//     }
+// };
+
+// console.log('Second Largest:', second);
+//-------------------------------------------------------------------------//
+
+
+//-------------------THIRD LARGEST WORD-------------------//
+// let str = 'javascript is the best coding language';
+
+// let largest = '', second = '', third = '', word = '';
+
+// for (let i = 0; i <= str.length; i++) {
+//     if (str[i] !== ' ' && i !== str.length) {
+//         word += str[i]
+//     } else {
+//         if (word.length > largest.length) {
+//             third = second
+//             second = largest
+//             largest = word
+//         } else if (word.length > second.length) {
+//             third = second
+//             second = word
+//         } else if (word.length > third.length) {
+//             third = word
+//         }
+//         word = ''
+//     }
+// };
+
+// console.log('Third Largest:', third);
+//-------------------------------------------------------------------------//
+
+
+//-------------------Custom Map-------------------//
+// Array.prototype.Hey = function (callback) {
+//     let result = []
+//     for (let i = 0; i < this.length; i++) {
+//         result.push(callback(this[i], i, this));
+//     }
+//     return result;
+// };
+
+
+// let arr = [1, 2, 3, 4];
+// let res = arr.Hey(x => x * 2);
+
+// console.log(res);
+//-------------------------------------------------------------------------//
+
+
+//-------------------Callback hell, promise, async await-------------------//
+//CALLBACK HELL
+// console.log('start');
+// setTimeout(() => {
+//     console.log('step 1');
+
+//     setTimeout(() => {
+//         console.log('step 2');
+
+//         setTimeout(() => {
+//             console.log('step 3');
+
+//             setTimeout(() => {
+//                 console.log('step 4');
+
+//                 setTimeout(() => {
+//                     console.log('step 5');
+//                 }, 1000);
+
+//             }, 1000);
+
+//         }, 1000);
+
+//     }, 1000);
+
+// }, 1000);
+
+// function logger(message, delay) {
+//     return new Promise((resolve) => {
+//         setTimeout(() => {
+//             console.log(message);
+//             resolve()
+//         }, delay);
+//     })
+// };
+
+//PROMISE WAY
+// console.log('start')
+// logger('step 1', 1000)
+//     .then(() => logger('step 2', 1000))
+//     .then(() => logger('step 3', 1000))
+//     .then(() => logger('step 4', 1000))
+
+//ASYNC AWAIT
+// async function hey() {
+//     console.log('start');
+//     await logger('step 1', 1000)
+//     await logger('step 2', 1000)
+//     await logger('step 3', 1000)
+//     await logger('step 4', 1000)
+// };
+
+// hey()
+//-------------------------------------------------------------------------//
+
+
+//-------------------Count of zeros without split('')-------------------//
+// let arr = [1000, 2000, 4000];
+// let count = 0
+
+// for (let i = 0; i < arr.length; i++) {
+
+//     let num = arr[i]
+
+//     while (num > 0) {
+//         if (num % 10 === 0) {
+//             count++
+//         }
+//         num = Math.floor(num / 10)
+//     }
+// }
+
+// console.log(count);
+//-------------------------------------------------------------------------//
+
+
+//-------------------apple (a-pp-ppp-llll-eeeee)-------------------//
+// let str = 'apple'
+// let res = ''
+
+// for(let i = 0; i < str.length; i++) {
+//     res += str[i].repeat(i + 1)
+    
+//     if(i < str.length - 1) {
+//         res += '-'
+//     }
+// }
+
+// console.log(res)
+//-------------------------------------------------------------------------//
+
+
+//-------------------Largest even with reduce-------------------//
+// let arr = [2, 3, 52, 23, 28, 87]
+
+// let res = arr.reduce((acc, curr) => {
+//     if (curr % 2 !== 0) {
+//         return acc < curr ? curr : acc
+//     }
+//     return acc
+// }, 0)
+
+// console.log(res);
 //-------------------------------------------------------------------------//
 
 

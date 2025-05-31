@@ -6,7 +6,7 @@ let promise = new Promise((resolve, reject) => {
 promise.then((value) => {
     console.log('resolve', value);
 }).catch((err) => {
-    console.log('failed');
+    console.log(err);
 })
 
 
