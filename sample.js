@@ -838,6 +838,7 @@
 // const result3 = c ?? 'default';
 // const result4 = d ?? 'default';
 // const result5 = e ?? 'default';
+
 // console.log(result1);
 // console.log(result2);
 // console.log(result3);
@@ -1263,7 +1264,7 @@ try {
 //-------------------------------------------------------------------------//
 
 
-//-------------------Capitalise starting letter-------------------//
+//-------------------Capitalise starting letter of string-------------------//
 // function capitaliser(str) {
 //     return str
 //         .split(' ')
@@ -1273,6 +1274,17 @@ try {
 
 // let str = 'react is awsome library'
 // console.log(capitaliser(str));
+//-------------------------------------------------------------------------//
+
+
+//-------------------Capitalise starting letter of array-------------------//
+// let arr = ['apple', 'orange', 'grape', 'banana'];
+
+// let res = arr.map(x => {
+//     return x.charAt(0).toUpperCase() + x.slice(1)
+// })
+
+// console.log(res);
 //-------------------------------------------------------------------------//
 
 
@@ -1914,7 +1926,7 @@ console.log(fibonacci(10));
 //-------------------------------------------------------------------------//
 
 
-//-------------------SECOND LARGEST WORD-------------------//
+// //-------------------SECOND LARGEST WORD-------------------//
 // let str = 'javascript is the best coding language';
 
 // let largest = '', second = '', word = '';
@@ -2084,10 +2096,6 @@ console.log(fibonacci(10));
 // }, 0)
 
 // console.log(res);
-//-------------------------------------------------------------------------//
-
-
-//-------------------0-------------------//
 //-------------------------------------------------------------------------//
 
 
