@@ -119,6 +119,37 @@
 //-------------------------------------------------------------------------//
 
 
+//-------------------Call Back function-------------------//
+// function greet(name, message) {
+//     message()
+//     console.log(name);
+// }
+
+// function message() {
+//     console.log('Hello');
+// }
+
+// greet('Vishnu', message)
+//-------------------------------------------------------------------------//
+
+
+//-------------------Higher Order function-------------------//
+// function greet(messager) {
+//     return function (name) {
+//         messager()
+//         console.log(name);
+//     }
+// }
+
+// function message() {
+//     console.log('Hello');
+// }
+
+// const hey = greet(message)
+// greet('vishnu')
+//-------------------------------------------------------------------------//
+
+
 //-------------------Print 1 to 50 while & do while loop-------------------//
 //while
 // let number = 1;
@@ -272,7 +303,7 @@
 //     if (num <= 1) {
 //         return false;
 //     }
-//     for (let i = 2; i < Math.sqrt(num); i++) {
+//     for (let i = 2; i <= Math.sqrt(num); i++) {
 //         if (num % i == 0) {
 //             return false;
 //         }
@@ -498,11 +529,11 @@
 
 
 //-------------------FLAT MAP-------------------//
-// const arr = [1, 2, 3, 4];
+// const arr = [[1, 2], [3, 4], [5]];
 
-// const mappedArray = arr.flatMap((x) => [x * 2, x * 3]);
+// let result = arr.flatMap(sub => sub.map(x => x * 2))
 
-// console.log(mappedArray);
+// console.log(result);
 //-------------------------------------------------------------------------//
 
 
@@ -1134,31 +1165,31 @@
 
 
 //-------------------Validation with proxy object-------------------//
-let target = {
-    name: "vishnu",
-    age: 26
-}
+// let target = {
+//     name: "vishnu",
+//     age: 26
+// }
 
-let handler = {
-    set: (obj, prop, value) => {
-        if (prop === 'age') {
-            if (value < 18 || value > 30) {
-                throw new Error("Age must be between 18 and 30")
-            }
-        }
-        obj[prop] = value
-        return true
-    }
-}
+// let handler = {
+//     set: (obj, prop, value) => {
+//         if (prop === 'age') {
+//             if (value < 18 || value > 30) {
+//                 throw new Error("Age must be between 18 and 30")
+//             }
+//         }
+//         obj[prop] = value
+//         return true
+//     }
+// }
 
-let proxy = new Proxy(target, handler);
+// let proxy = new Proxy(target, handler);
 
-try {
-    proxy.age = 32
-    console.log(`Age ${proxy.age} has been updated`);
-} catch (error) {
-    console.log(error.message);
-}
+// try {
+//     proxy.age = 32
+//     console.log(`Age ${proxy.age} has been updated`);
+// } catch (error) {
+//     console.log(error.message);
+// }
 //-------------------------------------------------------------------------//
 
 
@@ -1525,20 +1556,20 @@ try {
 
 
 //-------------------First occurance to Capital-------------------//
-function capitalizer(str){
-    let obj = {}
-    for(let char of str){
-        obj[char] = (obj[char] || 0) + 1
-    }
-    for(let i = 0; i < str.length; i++){
-        if(obj[str[i]] === 1){
-            return str.slice(0, i) + str[i].toUpperCase() + str.slice(i + 1)
-        }
-    }
-}
+// function capitalizer(str){
+//     let obj = {}
+//     for(let char of str){
+//         obj[char] = (obj[char] || 0) + 1
+//     }
+//     for(let i = 0; i < str.length; i++){
+//         if(obj[str[i]] === 1){
+//             return str.slice(0, i) + str[i].toUpperCase() + str.slice(i + 1)
+//         }
+//     }
+// }
 
-let str = 'swiss'
-console.log(capitalizer(str))
+// let str = 'swiss'
+// console.log(capitalizer(str))
 //-------------------------------------------------------------------------//
 
 
@@ -1804,58 +1835,58 @@ console.log(capitalizer(str))
 
 
 //-------------------Largest digit without split-------------------//
-let num = 1234857;
+// let num = 1234857;
 
-let largest = 0;
+// let largest = 0;
 
-while (num > 0) {
-    let digit = num % 10
-    if (digit > largest) {
-        largest = digit
-    }
-    num = Math.floor(num / 10)
-}
+// while (num > 0) {
+//     let digit = num % 10
+//     if (digit > largest) {
+//         largest = digit
+//     }
+//     num = Math.floor(num / 10)
+// }
 
-console.log(largest);
+// console.log(largest);
 //-------------------------------------------------------------------------//
 
 
 //-------------------Function called only once-------------------//
-function one(fn) {
-    let called = false;
+// function one(fn) {
+//     let called = false;
 
-    return function (...args) {
-        if (!called) {
-            called = true;
-            return fn(...args)
-        } else {
-            console.log('Function has already called once');
-        }
-    }
-};
+//     return function (...args) {
+//         if (!called) {
+//             called = true;
+//             return fn(...args)
+//         } else {
+//             console.log('Function has already called once');
+//         }
+//     }
+// };
 
-function greet(name) {
-    console.log(`Hello ${name}`);
-};
+// function greet(name) {
+//     console.log(`Hello ${name}`);
+// };
 
-const greeted = one(greet);
+// const greeted = one(greet);
 
-greeted('Abin');
-greeted('John');
+// greeted('Abin');
+// greeted('John');
 //-------------------------------------------------------------------------//
 
 
 //-------------------Remove duplicate even-------------------//
-let arr = [1, 2, 1, 2, 5, 6, 9, 6, 4, 77];
+// let arr = [1, 2, 1, 2, 5, 6, 9, 6, 4, 77];
 
-let obj = {};
+// let obj = {};
 
-for (let val of arr) {
-    obj[val] = (obj[val] || 0) + 1
-}
+// for (let val of arr) {
+//     obj[val] = (obj[val] || 0) + 1
+// }
 
-let res = arr.filter(val => !(obj[val] > 1 && obj[val] % 2 === 0));
-console.log(res);
+// let res = arr.filter(val => !(obj[val] > 1 && obj[val] % 2 === 0));
+// console.log(res);
 //-------------------------------------------------------------------------//
 
 
@@ -1874,12 +1905,12 @@ console.log(res);
 
 
 //-------------------Fibonacci-------------------//
-function fibonacci(n) {
-    if (n < 2) return n;
-    return fibonacci(n - 1) + fibonacci(n - 2)
-};
+// function fibonacci(n) {
+//     if (n < 2) return n;
+//     return fibonacci(n - 1) + fibonacci(n - 2)
+// };
 
-console.log(fibonacci(10));
+// console.log(fibonacci(10));
 //-------------------------------------------------------------------------//
 
 
@@ -2100,10 +2131,195 @@ console.log(fibonacci(10));
 
 
 //-------------------0-------------------//
+// function a() {
+//     return new Promise((resolve) => {
+//         setTimeout(() => resolve(10), 1000);
+//     });
+// }
+
+// function b() {
+//     return new Promise((resolve) => {
+//         setTimeout(() => resolve(20), 1000);
+//     });
+// }
+
+// function c() {
+//     return new Promise((resolve) => {
+//         setTimeout(() => resolve(30), 1000);
+//     });
+// }
+
+// async function sumAll() {
+//     const [x, y, z] = await Promise.all([a(), b(), c()]);
+//     console.log('Sum:', x + y + z);
+// }
+
+// sumAll();
 //-------------------------------------------------------------------------//
 
 
-//-------------------0-------------------//
+//-------------------Vipin Varghese-------------------//
+const ab = [[123, 4, 123, 41, 2],[123, 23, 12], [5, 23, 4, 12], [123, 4, 123, 41, 2]];
+
+let arr = [];
+
+for (let i = 0; i < ab.length; i++) {
+    let sum = 0;
+    for (let j = 0; j < ab[i].length; j++) {
+        sum += ab[i][j];
+    }
+    arr.push([i, sum, ab[i]]);
+}
+
+const arr1 = arr.map(item => item[1]);
+
+for (let i = 0; i < arr.length; i++) {
+    if (arr[i][1] === Math.max(...arr1)) {
+        console.log(arr[i][0], arr[i][2]);
+    }
+}
+//-------------------------------------------------------------------------//
+
+
+//-------------------Debounce-------------------//
+// function debouce(func, delay) {
+//     let timeoutId
+//     return function (...args) {
+//         clearTimeout(timeoutId)
+//         timeoutId = setTimeout(() => {
+//             func.apply(this, args)
+//         }, delay)
+//     }
+// }
+
+// const onInputChange = debounce(() => console.log("api called"), 600);
+
+//     document.getElementById("inputBox").addEventListener("input", onInputChange);
+//-------------------------------------------------------------------------//
+
+
+//-------------------Throttling-------------------//
+// function throttling(func, limit) {
+//     let lastCalled = 0
+//     return function (...args) {
+//         let now = Date.now()
+//         if (now - lastCalled >= limit) {
+//             lastCalled = now
+//             func.apply(this, args)
+//         }
+//     }
+// }
+
+// const onScroll = throttling(() => console.log('api called'), 600)
+
+// window.addEventListener('scroll', onscroll)
+//-------------------------------------------------------------------------//
+
+
+//-------------------Deep clone without built in methods-------------------//
+let obj = {
+    name: 'Vishnu',
+    age: 25,
+    address: {
+        city: 'calicut'
+    }
+}
+
+function deepClone(obj) {
+    if (obj === null || typeof obj !== 'object') return obj
+    
+    let clone = {}
+    for (let key in obj) {
+        clone[key] = deepClone(obj[key])
+    }
+    return clone
+}
+
+let cloned = deepClone(obj)
+cloned.address.city = 'kochi'
+
+console.log(cloned.address.city);
+console.log(obj.address.city);
+//-------------------------------------------------------------------------//
+
+
+//-------------------Array to key value pairs-------------------//
+// let a = ['a', 'b', 'c',]
+// let b = [1, 2, 3]
+
+// let res = {}
+
+// for (let i = 0; i < a.length; i++) {
+//     res[a[i]] = b[i]
+// }
+
+// console.log(res);
+//-------------------------------------------------------------------------//
+
+
+//-------------------Duplicate sub arrays-------------------//
+// let arr = [[1, 2], [3, 4], [1, 2], [5, 6], [3, 4]];
+
+// let seen = {}
+// let res = []
+
+// for (let sub of arr) {
+//     if (seen[sub]) {
+//         res.push(sub)
+//     } else {
+//         seen[sub] = true
+//     }
+// }
+
+// console.log(res);
+//-------------------------------------------------------------------------//
+
+
+//-------------------Second least occurance with hashmap-------------------//
+// const arr = [1, 2, 2, 3, 3, 3, 4, 4, 5];
+
+// let map = new Map()
+
+// for (let nums of arr) {
+//     map.set(nums, (map.get(nums) || 0) + 1)
+// }
+
+// let min = Infinity, secondMin = Infinity;
+
+// for (let val of map.values()) {
+//     if (val < min) {
+//         secondMin = min
+//         min = val
+//     } else if (val < secondMin && val !== min) {
+//         secondMin = val
+//     }
+// }
+
+// for (let [key, val] of map) {
+//     if (val === secondMin) {
+//         console.log(key);
+//     }
+// }
+//-------------------------------------------------------------------------//
+
+
+//-------------------Min closest value-------------------//
+// let arr = [12, 3, 77, 90, 34, 2];
+
+// function minClosestValue(arr, target) {
+//     let closest = null
+
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] <= target) {
+//             if (closest == null || arr[i] > closest) {
+//                 closest = arr[i]
+//             }
+//         }
+//     }
+//     return closest ?? 'No values found'
+// }
+
+// console.log(minClosestValue(arr, 80));
 //-------------------------------------------------------------------------//
 
 

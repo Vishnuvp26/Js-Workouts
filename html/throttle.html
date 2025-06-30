@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Throttle</title>
+</head>
+<body>
+    <script>
+        function throttle(func, limit) {
+        let lastCall = 0;
+        return function (...args) {
+            let now = Date.now();
+            if (now - lastCall >= limit) {
+                lastCall = now;
+                func.apply(this, args);
+            }
+        }
+    }
+    const onScroll = throttle(() => console.log("scrolled"), 600);
+
+    window.addEventListener("scroll", onScroll);
+    </script>
+</body>
+</html>
